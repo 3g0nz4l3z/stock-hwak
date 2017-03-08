@@ -1,5 +1,6 @@
 package com.udacity.stockhawk.sync;
 
+import android.app.Activity;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
@@ -40,7 +41,8 @@ public final class QuoteSyncJob {
     private static final int INITIAL_BACKOFF = 10000;
     private static final int PERIODIC_ID = 1;
     private static final int YEARS_OF_HISTORY = 2;
-    static MainActivity mainActivity;
+    private static MainActivity mainActivity1;
+
     private QuoteSyncJob() {
     }
 
@@ -121,7 +123,7 @@ public final class QuoteSyncJob {
             Timber.e(exception, "Error fetching stock quotes");
         }catch (NullPointerException exception)
         {
-
+            mainActivity1.onStockFailed();
         }
     }
 
@@ -147,6 +149,13 @@ public final class QuoteSyncJob {
 
         schedulePeriodic(context);
         syncImmediately(context);
+    }
+
+
+    public static synchronized void initialize(final Context context, MainActivity mainActivity) {
+
+        initialize(context);
+        mainActivity1 = mainActivity;
 
     }
 

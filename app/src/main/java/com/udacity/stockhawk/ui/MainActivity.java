@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         swipeRefreshLayout.setRefreshing(true);
         onRefresh();
 
-        QuoteSyncJob.initialize(this);
+        QuoteSyncJob.initialize(this, MainActivity.this);
         getSupportLoaderManager().initLoader(STOCK_LOADER, null, this);
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
@@ -150,7 +150,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         adapter.setCursor(data);
     }
-
+    public void onStockFailed(){
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+    }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
