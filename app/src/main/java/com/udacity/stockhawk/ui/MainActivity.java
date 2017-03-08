@@ -155,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             @Override
             public void run() {
                 swipeRefreshLayout.setRefreshing(false);
+                Toast.makeText(MainActivity.this, getResources().getString(R.string.toast_stock_not_found), Toast.LENGTH_SHORT).show();
             }
         });
     }
