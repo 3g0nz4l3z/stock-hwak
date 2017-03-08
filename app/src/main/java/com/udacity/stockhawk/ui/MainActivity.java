@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         adapter.setCursor(data);
     }
+
     public void onStockFailed(){
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
