@@ -2,7 +2,6 @@ package com.udacity.stockhawk.ui;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;

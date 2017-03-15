@@ -27,7 +27,7 @@
                 />
 
             <TextView
-                android:id="@+id/textViewSymol"
+                android:id="@+id/textViewSymbol"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_column="0"
@@ -44,7 +44,7 @@
         android:layout_weight="4"
         android:orientation="horizontal">
         <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chart_stock_over_time"
+            android:id="@+id/chartStockOverTime"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
