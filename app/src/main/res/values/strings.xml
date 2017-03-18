@@ -33,5 +33,9 @@
     <string name="toast_no_connectivity">Will refresh when network available.</string>
     <string name="toast_stock_not_found">The stock was not found</string>
     <string name="title_activity_stock">StockActivity</string>
+    <string name="company_name_value">Exe corporation</string>
+    <string name="nasdaq_value">EXE</string>
+    <string name="company_name">Company Name</string>
+    <string name="nasdaq">NASDAQ</string>
 
 </resources>
