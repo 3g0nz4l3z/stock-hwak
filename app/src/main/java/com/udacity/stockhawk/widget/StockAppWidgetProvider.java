@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.widget.RemoteViews;
 
 import com.udacity.stockhawk.R;
@@ -19,11 +20,17 @@ public class StockAppWidgetProvider extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         for (int appWidgetId : appWidgetIds){
-//            Intent intentStock = new Intent(context, StockActivity.class);
-//            intentStock.putExtra("symbol", "GOOG");
-//            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0 , intentStock, 0);
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.stock_appwidget);
+
+            Intent swsIntent = new Intent(context, StockWidgetService.class);
+            swsIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+            swsIntent.setData(Uri.parse(swsIntent.toUri(Intent.URI_INTENT_SCHEME)));
+            views.setRemoteAdapter(appWidgetId, R.id.stockWidgetListView, swsIntent);
+
+
             appWidgetManager.updateAppWidget(appWidgetId, views);
+
+            super.onUpdate(context, appWidgetManager, appWidgetIds);
         }
     }
 }
