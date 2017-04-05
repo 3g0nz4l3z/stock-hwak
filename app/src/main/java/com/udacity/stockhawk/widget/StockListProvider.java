@@ -45,7 +45,7 @@ class StockListProvider implements RemoteViewsService.RemoteViewsFactory {
         cursor = context.getContentResolver().query(
                 Contract.Quote.URI,
                 new String[]{Contract.Quote.COLUMN_SYMBOL, Contract.Quote.COLUMN_PRICE,
-                        Contract.Quote.COLUMN_PERCENTAGE_CHANGE}, Contract.Quote.POSITION_ID+" = ?", new String[]{"1"}, null);
+                        Contract.Quote.COLUMN_PERCENTAGE_CHANGE}, null, null, null);
     }
 
     @Override
