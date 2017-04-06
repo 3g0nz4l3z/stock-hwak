@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.udacity.stockhawk.ui.StockActivity">
+    tools:context="com.udacity.stockhawk.ui.StockActivity"
+    android:paddingStart="@dimen/activity_horizontal_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/stock_fragment_sf"
